@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join a match · Oncourt</title>
+  <meta name="description" content="Open this match in the Oncourt app.">
+  <meta name="robots" content="noindex">
+  <style>
+    :root { --ink: #0a1f29; --teal: #14c8d2; --muted: #5d7480; --bg: #f3f7f8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center;
+           background: var(--bg); color: var(--ink);
+           font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    main { width: min(420px, calc(100% - 32px)); background: #fff; border-radius: 24px;
+           padding: 32px 24px; text-align: center; box-shadow: 0 10px 30px rgba(10,31,41,.08); }
+    h1 { font-size: 26px; margin: 12px 0 8px; }
+    p { color: var(--muted); margin: 0 0 20px; }
+    .logo { font-weight: 900; font-size: 30px; letter-spacing: -.5px; }
+    .logo span { color: var(--teal); }
+    a.button { display: block; padding: 16px; border-radius: 16px; background: var(--teal);
+               color: var(--ink); font-weight: 800; text-decoration: none; margin-bottom: 12px; }
+    .hint { font-size: 14px; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+<main>
+  <div class="logo"><span>On</span>court</div>
+  <h1>You're invited to a match</h1>
+  <p id="lead">Open it in the Oncourt app to see the details and join.</p>
+  <a id="open" class="button" href="#">Open in Oncourt</a>
+  <p id="noapp" class="hint hidden">
+    Oncourt isn't on this phone yet. Ask the person who invited you for the
+    app, install it, then tap the invite link again.
+  </p>
+  <p id="desktop" class="hint hidden">
+    Open this link on your Android phone with Oncourt installed.
+  </p>
+</main>
+<script>
+  (function () {
+    var params = new URLSearchParams(location.search);
+    var game = params.get('g') || '';
+    var valid = /^[0-9a-f-]{36}$/i.test(game);
+    var open = document.getElementById('open');
+    if (!valid) {
+      document.getElementById('lead').textContent = 'This invite link is incomplete. Ask for a new one.';
+      open.classList.add('hidden');
+      return;
+    }
+    var appLink = 'app.oncourt://open/game/' + game;
+    var android = /Android/i.test(navigator.userAgent);
+    if (params.get('noapp') === '1') {
+      document.getElementById('noapp').classList.remove('hidden');
+    }
+    if (android) {
+      var fallback = location.origin + location.pathname + '?g=' + game + '&noapp=1';
+      open.href = 'intent://open/game/' + game +
+        '#Intent;scheme=app.oncourt;package=app.oncourt;S.browser_fallback_url=' +
+        encodeURIComponent(fallback) + ';end';
+      if (params.get('noapp') !== '1') {
+        // Try straight away; the button stays for browsers that need a tap.
+        setTimeout(function () { location.href = open.href; }, 300);
+      }
+    } else {
+      open.href = appLink;
+      document.getElementById('desktop').classList.remove('hidden');
+    }
+  })();
+</script>
+</body>
+</html>
