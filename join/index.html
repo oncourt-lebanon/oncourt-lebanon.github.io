@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Join a match · Oncourt</title>
-  <meta name="description" content="Open this match in the Oncourt app.">
+  <title>Join on Oncourt</title>
+  <meta name="description" content="Open this match, tournament or team in the Oncourt app.">
   <meta name="robots" content="noindex">
   <style>
     :root { --ink: #0a1f29; --teal: #14c8d2; --muted: #5d7480; --bg: #f3f7f8; }
@@ -27,7 +27,7 @@
 <body>
 <main>
   <div class="logo"><span>On</span>court</div>
-  <h1>You're invited to a match</h1>
+  <h1 id="title">You're invited to a match</h1>
   <p id="lead">Open it in the Oncourt app to see the details and join.</p>
   <a id="open" class="button" href="#">Open in Oncourt</a>
   <p id="noapp" class="hint hidden">
@@ -41,22 +41,45 @@
 <script>
   (function () {
     var params = new URLSearchParams(location.search);
+    var uuid = /^[0-9a-f-]{36}$/i;
     var game = params.get('g') || '';
-    var valid = /^[0-9a-f-]{36}$/i.test(game);
+    var tournament = params.get('t') || '';
+    var code = (params.get('c') || '').toUpperCase();
     var open = document.getElementById('open');
-    if (!valid) {
+    // What to open in the app: a match, a tournament, or a team (its link code).
+    var path = '';
+    var query = '';
+    if (uuid.test(game)) {
+      path = 'game/' + game;
+      query = '?g=' + game;
+    } else if (uuid.test(tournament)) {
+      path = 'tournament/' + tournament;
+      query = '?t=' + tournament;
+      if (/^[A-Z0-9]{8}$/.test(code)) {
+        path += '?code=' + code;
+        query += '&c=' + code;
+        document.getElementById('title').textContent = "You're invited to a team";
+        document.getElementById('lead').textContent =
+          'Open it in the Oncourt app to join the team and play the tournament.';
+      } else {
+        document.getElementById('title').textContent = 'A tournament on Oncourt';
+        document.getElementById('lead').textContent =
+          'Open it in the Oncourt app to see the teams, the draw and the results.';
+      }
+    }
+    if (!path) {
       document.getElementById('lead').textContent = 'This invite link is incomplete. Ask for a new one.';
       open.classList.add('hidden');
       return;
     }
-    var appLink = 'app.oncourt://open/game/' + game;
+    var appLink = 'app.oncourt://open/' + path;
     var android = /Android/i.test(navigator.userAgent);
     if (params.get('noapp') === '1') {
       document.getElementById('noapp').classList.remove('hidden');
     }
     if (android) {
-      var fallback = location.origin + location.pathname + '?g=' + game + '&noapp=1';
-      open.href = 'intent://open/game/' + game +
+      var fallback = location.origin + location.pathname + query + '&noapp=1';
+      open.href = 'intent://open/' + path +
         '#Intent;scheme=app.oncourt;package=app.oncourt;S.browser_fallback_url=' +
         encodeURIComponent(fallback) + ';end';
       if (params.get('noapp') !== '1') {
