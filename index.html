@@ -133,6 +133,7 @@
   .links { display: flex; align-items: center; gap: 32px; margin-left: auto; }
   .links a { text-decoration: none; color: var(--soft); font-weight: 600; font-size: 14.5px; transition: color .2s; }
   .links a:hover { color: #fff; }
+  .links .menu-only { display: none; }
   .menu-btn { display: none; width: 44px; height: 44px; border-radius: 12px; border: 0; cursor: pointer;
               background: rgba(255, 255, 255, .06); align-items: center; justify-content: center; }
   .menu-btn span { position: relative; width: 18px; height: 2px; background: #fff; border-radius: 2px; transition: background .2s; }
@@ -519,6 +520,7 @@
   /* Phone */
   @media (max-width: 600px) {
     body { font-size: 16px; }
+    .nav-in { gap: 10px; }
     .nav-cta { padding: 11px 15px; }
     .hero { padding: 112px 0 64px; }
     .pill-more { display: none; }
@@ -573,6 +575,12 @@
     summary { font-size: 17px; padding: 20px 2px; }
     .foot { grid-template-columns: 1fr 1fr; }
   }
+  /* Small phones: the menu carries "Get the app" instead of the bar */
+  @media (max-width: 350px) {
+    .nav-cta { display: none; }
+    .menu-btn { margin-left: auto; }
+    .links .menu-only { display: block; }
+  }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -613,6 +621,7 @@
       <a href="#tournaments">Tournaments</a>
       <a href="#owners">For clubs</a>
       <a href="#faq">FAQ</a>
+      <a class="menu-only" href="#get">Get the app</a>
     </div>
     <a class="btn btn-primary btn-sm nav-cta" href="#get">Get the app</a>
     <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
