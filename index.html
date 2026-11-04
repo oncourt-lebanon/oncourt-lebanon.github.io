@@ -1,36 +1,1006 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Oncourt Lebanon</title>
-  <meta name="description" content="Book courts, join matches and play with friends across Lebanon.">
-  <style>
-    :root { --ink: #0a1f29; --teal: #14c8d2; --muted: #5d7480; --bg: #f3f7f8; }
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: var(--bg);
-           color: var(--ink); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-    main { width: min(460px, calc(100% - 32px)); text-align: center; }
-    .logo { font-weight: 900; font-size: 40px; letter-spacing: -1px; }
-    .logo span { color: var(--teal); }
-    p { color: var(--muted); }
-    a { color: #0e8f93; }
-    nav { margin-top: 28px; font-size: 14px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .support { margin-top: 24px; font-size: 15px; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oncourt · Book padel courts in Lebanon</title>
+<meta name="description" content="Book a court in Lebanon in seconds. See every free time and the exact price, play 60, 90 or 120 minutes, join matches and tournaments, and pay at the club.">
+<link rel="canonical" href="https://oncourtlb.com/">
+<meta name="theme-color" content="#061C27">
+<meta name="color-scheme" content="dark">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Oncourt">
+<meta property="og:title" content="Oncourt · Book your court. Pay at the club.">
+<meta property="og:description" content="Book padel courts in Lebanon in seconds. Play 60, 90 or 120 minutes, join matches and tournaments, and pay at the club.">
+<meta property="og:url" content="https://oncourtlb.com/">
+<meta property="og:image" content="https://oncourtlb.com/assets/og.jpg">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/screen-duration.webp" type="image/webp">
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Oncourt",
+  "operatingSystem": "Android",
+  "applicationCategory": "SportsApplication",
+  "description": "Book padel courts in Lebanon in seconds. See every free time and the exact price, play 60, 90 or 120 minutes, join matches and tournaments, and pay at the club.",
+  "url": "https://oncourtlb.com/",
+  "downloadUrl": "https://play.google.com/store/apps/details?id=app.oncourt",
+  "image": "https://oncourtlb.com/assets/icon-192.png",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "Oncourt", "url": "https://oncourtlb.com/", "email": "support@oncourtlb.com" }
+}
+</script>
+<style>
+  :root {
+    --navy: #061C27;
+    --deep: #030E14;
+    --raised: #0B2733;
+    --raised-2: #103241;
+    --line: rgba(116, 232, 237, .16);
+    --line-2: rgba(255, 255, 255, .08);
+    --cyan: #13C8D3;
+    --aqua: #74E8ED;
+    --green: #2EE59D;
+    --lime: #D7F04B;
+    --text: #F2F8FA;
+    --soft: #C9DADF;
+    --muted: #93ABB4;
+    --display: "Bricolage Grotesque", "Plus Jakarta Sans", system-ui, sans-serif;
+    --body: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --max: 1180px;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--deep); color-scheme: dark; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 80px; }
+  body { margin: 0; background: var(--deep); color: var(--text); font: 400 17px/1.6 var(--body);
+         overflow-x: clip; -webkit-font-smoothing: antialiased; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  button { font: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--aqua); outline-offset: 3px; border-radius: 8px; }
+  .wrap { width: min(var(--max), 100% - 32px); margin-inline: auto; }
+  h1, h2, h3 { font-family: var(--display); line-height: 1.04; letter-spacing: -.028em; margin: 0; font-weight: 800; }
+  h2 { font-size: clamp(34px, 5vw, 58px); }
+  h3 { font-size: 24px; letter-spacing: -.02em; font-weight: 700; }
+  p { margin: 0; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 10px; font: 700 13px/1 var(--body);
+             letter-spacing: .16em; text-transform: uppercase; color: var(--aqua); }
+  .eyebrow::before { content: ""; width: 22px; height: 2px; border-radius: 2px; background: currentColor; }
+  .lead { color: var(--muted); font-size: clamp(17px, 1.6vw, 19px); max-width: 58ch; }
+  .grad { background: linear-gradient(100deg, var(--green) 0%, var(--cyan) 48%, var(--aqua) 100%);
+          -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .section { position: relative; padding: clamp(84px, 11vw, 140px) 0; }
+  .section-head { max-width: 760px; margin-bottom: clamp(40px, 6vw, 68px); }
+  .section-head.center { margin-inline: auto; text-align: center; }
+  .section-head.center .lead { margin-inline: auto; }
+  .section-head h2 { margin: 16px 0 18px; }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border-radius: 999px;
+         font: 700 16px/1 var(--body); text-decoration: none; padding: 17px 26px; border: 0; cursor: pointer;
+         white-space: nowrap; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+  .btn svg { width: 18px; height: 18px; }
+  .btn-primary { background: var(--cyan); color: var(--navy); box-shadow: 0 12px 32px -10px rgba(19, 200, 211, .7); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -12px rgba(19, 200, 211, .85); }
+  .btn-ghost { background: rgba(255, 255, 255, .05); color: #fff; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14); }
+  .btn-ghost:hover { background: rgba(255, 255, 255, .1); transform: translateY(-2px); }
+  .btn-sm { padding: 12px 18px; font-size: 14px; }
+  .store { display: inline-flex; align-items: center; gap: 12px; padding: 12px 24px 12px 18px; border-radius: 16px;
+           background: #fff; color: var(--navy); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease;
+           box-shadow: 0 14px 36px -14px rgba(116, 232, 237, .55); }
+  .store:hover { transform: translateY(-2px); box-shadow: 0 20px 44px -14px rgba(116, 232, 237, .75); }
+  .store svg { width: 26px; height: 26px; flex: none; }
+  .store span { display: grid; line-height: 1.05; }
+  .store small { font: 700 10.5px/1 var(--body); letter-spacing: .12em; text-transform: uppercase; opacity: .7; margin-bottom: 4px; }
+  .store strong { font: 800 20px/1 var(--display); letter-spacing: -.01em; }
+
+  /* Nav */
+  .nav { position: fixed; inset: 0 0 auto; z-index: 50; border-bottom: 1px solid transparent;
+         transition: background .3s ease, border-color .3s ease; }
+  .nav.scrolled, .nav.menu-open { background: rgba(3, 14, 20, .8); border-color: var(--line-2);
+         -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%); }
+  .nav-in { display: flex; align-items: center; gap: 24px; height: 72px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 800 23px/1 var(--display); letter-spacing: -.03em; }
+  .brand img { width: 38px; height: 38px; border-radius: 11px; }
+  .brand b { font-weight: 800; background: linear-gradient(90deg, var(--green), var(--cyan));
+             -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .links { display: flex; align-items: center; gap: 30px; margin-left: auto; }
+  .links a { text-decoration: none; color: var(--soft); font-weight: 600; font-size: 15px; transition: color .2s; }
+  .links a:hover { color: #fff; }
+  .menu-btn { display: none; width: 44px; height: 44px; border-radius: 12px; border: 0; cursor: pointer;
+              background: rgba(255, 255, 255, .06); align-items: center; justify-content: center; }
+  .menu-btn span { position: relative; width: 18px; height: 2px; background: #fff; border-radius: 2px; transition: background .2s; }
+  .menu-btn span::before, .menu-btn span::after { content: ""; position: absolute; left: 0; width: 18px; height: 2px;
+              background: #fff; border-radius: 2px; transition: transform .25s ease; }
+  .menu-btn span::before { transform: translateY(-6px); }
+  .menu-btn span::after { transform: translateY(6px); }
+  .menu-open .menu-btn span { background: transparent; }
+  .menu-open .menu-btn span::before { transform: rotate(45deg); }
+  .menu-open .menu-btn span::after { transform: rotate(-45deg); }
+
+  /* Hero */
+  .hero { position: relative; overflow: hidden; padding: 150px 0 90px; background:
+          radial-gradient(1100px 600px at 85% -10%, rgba(19, 200, 211, .22), transparent 60%),
+          radial-gradient(900px 600px at -10% 30%, rgba(46, 229, 157, .12), transparent 60%),
+          linear-gradient(180deg, var(--navy), var(--deep)); }
+  .court { position: absolute; left: 50%; bottom: -40px; width: min(1500px, 190vw); color: rgba(116, 232, 237, .2);
+           transform: translateX(-50%) perspective(900px) rotateX(66deg); transform-origin: 50% 100%;
+           -webkit-mask-image: linear-gradient(to top, #000 15%, transparent 80%); mask-image: linear-gradient(to top, #000 15%, transparent 80%);
+           pointer-events: none; }
+  .hero-grid { position: relative; display: grid; grid-template-columns: 1.02fr .98fr; gap: 40px; align-items: center; }
+  .pill { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px 8px 12px; border-radius: 999px;
+          background: rgba(19, 200, 211, .1); box-shadow: inset 0 0 0 1px var(--line); color: var(--soft);
+          font-size: 14px; font-weight: 600; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; background: var(--green); animation: ping 2s infinite; }
+  @keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(46, 229, 157, .55); } 80%, 100% { box-shadow: 0 0 0 10px rgba(46, 229, 157, 0); } }
+  .hero h1 { font-size: clamp(44px, 6.6vw, 86px); margin: 24px 0; }
+  .hero .lead { font-size: clamp(17px, 1.7vw, 20px); color: var(--soft); }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 36px; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 10px 22px; list-style: none; padding: 0; margin: 28px 0 0; color: var(--muted); font-size: 15px; font-weight: 500; }
+  .hero-meta li { display: flex; align-items: center; gap: 8px; }
+  .hero-meta svg { width: 18px; height: 18px; color: var(--cyan); }
+
+  .hero-art { position: relative; height: 660px; }
+  .phone { position: relative; border-radius: 44px; padding: 9px;
+           background: linear-gradient(150deg, #2a5263 0%, #0d2733 35%, #071a23 100%);
+           box-shadow: inset 0 0 0 1px rgba(116, 232, 237, .22), 0 50px 90px -30px rgba(0, 0, 0, .85), 0 0 0 1px rgba(0, 0, 0, .55); }
+  .phone img, .screen-stack { width: 100%; height: auto; aspect-ratio: 600 / 1067; border-radius: 36px; }
+  .hero-art .phone { position: absolute; top: 50%; left: 50%; }
+  .p-main { width: 300px; transform: translate(-50%, -50%); z-index: 3; }
+  .p-left { width: 246px; transform: translate(calc(-50% - 185px), calc(-50% + 34px)) rotate(-9deg); z-index: 1; filter: brightness(.7) saturate(.9); }
+  .p-right { width: 246px; transform: translate(calc(-50% + 185px), calc(-50% + 34px)) rotate(9deg); z-index: 1; filter: brightness(.7) saturate(.9); }
+  .chip { position: absolute; z-index: 4; display: flex; align-items: center; gap: 12px; padding: 12px 16px 12px 12px;
+          border-radius: 18px; background: rgba(8, 30, 40, .84); box-shadow: inset 0 0 0 1px var(--line), 0 20px 40px -16px rgba(0, 0, 0, .8);
+          -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); animation: float 6s ease-in-out infinite; }
+  .chip i { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; flex: none; }
+  .chip i svg { width: 20px; height: 20px; }
+  .chip b { display: block; font-size: 14px; line-height: 1.2; white-space: nowrap; }
+  .chip small { display: block; font-size: 12.5px; color: var(--muted); line-height: 1.3; white-space: nowrap; }
+  .chip-1 { top: 12%; left: 0; }
+  .chip-1 i { background: rgba(46, 229, 157, .16); color: var(--green); }
+  .chip-2 { top: 44%; right: -2%; animation-delay: -2s; }
+  .chip-2 i { background: rgba(19, 200, 211, .18); color: var(--aqua); }
+  .chip-3 { bottom: 9%; left: 6%; animation-delay: -4s; }
+  .chip-3 i { background: rgba(116, 232, 237, .14); color: var(--aqua); }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+  /* Marquee */
+  .marquee { position: relative; overflow: hidden; border-block: 1px solid var(--line-2); background: var(--navy); padding: 20px 0;
+             -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+             mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .track { display: flex; width: max-content; animation: slide 40s linear infinite; }
+  .track ul { display: flex; margin: 0; padding: 0; list-style: none; }
+  .track li { display: flex; align-items: center; gap: 22px; padding-right: 22px; font: 700 clamp(18px, 2vw, 22px)/1 var(--display);
+              letter-spacing: -.01em; color: var(--soft); white-space: nowrap; }
+  .track li::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); opacity: .8; }
+  @keyframes slide { to { transform: translateX(-50%); } }
+
+  /* Reveal on scroll */
+  .js .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s cubic-bezier(.2, .7, .2, 1); }
+  .js .reveal.in { opacity: 1; transform: none; }
+  .js .reveal.d1 { transition-delay: .08s; }
+  .js .reveal.d2 { transition-delay: .16s; }
+
+  /* Why */
+  .why { background: linear-gradient(180deg, var(--deep), var(--navy) 60%, var(--deep)); }
+  .bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; }
+  .card { position: relative; overflow: hidden; border-radius: 28px; padding: 32px; isolation: isolate;
+          background: linear-gradient(180deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, .015));
+          box-shadow: inset 0 0 0 1px var(--line-2); transition: box-shadow .3s ease, transform .3s ease, opacity .8s ease; }
+  .card::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity .3s;
+                  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(19, 200, 211, .14), transparent 60%); }
+  .card:hover { box-shadow: inset 0 0 0 1px var(--line); }
+  .card:hover::before { opacity: 1; }
+  .card h3 { margin: 22px 0 10px; }
+  .card p { color: var(--muted); }
+  .ico { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 16px;
+         background: rgba(19, 200, 211, .12); color: var(--aqua); box-shadow: inset 0 0 0 1px var(--line); }
+  .ico svg { width: 26px; height: 26px; }
+  .span-4 { grid-column: span 4; }
+  .span-2 { grid-column: span 2; }
+  .card-price { display: grid; grid-template-columns: 1fr 1.05fr; gap: 30px; align-items: center; }
+  .prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 12px; }
+  .pt { position: relative; border-radius: 20px; padding: 26px 10px 18px; text-align: center; background: #fff; color: var(--navy); }
+  .pt b { font: 800 34px/1 var(--display); letter-spacing: -.03em; }
+  .pt small { font-size: 14px; font-weight: 600; color: #5E737C; margin-left: 2px; }
+  .pt span { display: block; margin-top: 10px; font: 800 19px/1 var(--display); }
+  .pt.best { background: var(--cyan); transform: translateY(-8px); box-shadow: 0 20px 40px -18px rgba(19, 200, 211, .9); }
+  .pt.best small { color: rgba(6, 28, 39, .7); }
+  .pt em { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); padding: 5px 10px; border-radius: 999px;
+           background: var(--navy); color: var(--aqua); font: 800 10px/1 var(--body); letter-spacing: .08em; text-transform: uppercase;
+           font-style: normal; white-space: nowrap; box-shadow: inset 0 0 0 1px var(--line); }
+  .fine { margin-top: 14px; font-size: 13px; color: var(--muted); text-align: center; }
+  .zero { font: 800 clamp(64px, 7vw, 92px)/.9 var(--display); letter-spacing: -.05em; margin-top: 22px; }
+  .zero span { font-size: .3em; letter-spacing: -.01em; color: var(--muted); margin-left: 8px; font-weight: 700; }
+  .stack { display: flex; align-items: center; margin-top: 22px; }
+  .av { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; margin-left: -5px;
+        font: 800 14px/1 var(--body); color: var(--navy); box-shadow: 0 0 0 3px #0a2430; }
+  .av:first-child { margin-left: 0; }
+  .a1 { background: var(--aqua); } .a2 { background: var(--cyan); } .a3 { background: var(--green); }
+  .av.empty { background: transparent; color: var(--aqua); box-shadow: 0 0 0 3px #0a2430, inset 0 0 0 2px rgba(116, 232, 237, .5); font-size: 20px; }
+  .stack-label { margin-left: 14px; font-size: 14px; font-weight: 600; color: var(--soft); }
+  .link-chip { display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; padding: 10px 14px; border-radius: 14px;
+               background: rgba(255, 255, 255, .05); box-shadow: inset 0 0 0 1px var(--line-2); font-size: 14px; color: var(--soft); max-width: 100%; }
+  .link-chip svg { width: 18px; height: 18px; color: var(--green); flex: none; }
+
+  /* App tour */
+  .tour { background: var(--deep); overflow: hidden; }
+  .tour-grid { display: grid; grid-template-columns: 1fr 380px; gap: clamp(32px, 6vw, 90px); align-items: center; }
+  .tour-tabs { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .tour-tab { position: relative; display: grid; grid-template-columns: 44px 1fr; gap: 14px; width: 100%; text-align: left;
+              padding: 20px 22px; border: 0; border-radius: 22px; background: transparent; cursor: pointer; overflow: hidden;
+              transition: background .3s ease, box-shadow .3s ease; }
+  .tour-tab:hover { background: rgba(255, 255, 255, .03); }
+  .tour-tab.on { background: linear-gradient(180deg, rgba(19, 200, 211, .1), rgba(19, 200, 211, .04)); box-shadow: inset 0 0 0 1px var(--line); }
+  .tour-tab .num { font: 700 15px/1.6 var(--display); color: var(--muted); }
+  .tour-tab.on .num { color: var(--aqua); }
+  .tour-tab strong { display: block; font: 700 21px/1.3 var(--display); letter-spacing: -.015em; color: var(--soft); }
+  .tour-tab.on strong { color: #fff; }
+  .tour-tab .d { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s ease; color: var(--muted); font-size: 16px; }
+  .tour-tab .d > span { overflow: hidden; }
+  .tour-tab .d > span > span { display: block; padding-top: 6px; }
+  .tour-tab.on .d { grid-template-rows: 1fr; }
+  .tour-tab .bar { position: absolute; left: 22px; right: 22px; bottom: 0; height: 2px; border-radius: 2px; background: rgba(116, 232, 237, .12); opacity: 0; }
+  .tour-tab .bar::after { content: ""; position: absolute; inset: 0; transform-origin: left; transform: scaleX(0); background: var(--cyan); border-radius: inherit; }
+  .tour.auto .tour-tab.on .bar { opacity: 1; }
+  .tour.auto .tour-tab.on .bar::after { animation: fill 5.5s linear forwards; }
+  @keyframes fill { to { transform: scaleX(1); } }
+  .tour-stage { position: relative; display: grid; place-items: center; }
+  .tour-stage::before { content: ""; position: absolute; width: 130%; aspect-ratio: 1; border-radius: 50%; z-index: 0;
+                        background: radial-gradient(circle, rgba(19, 200, 211, .28), transparent 62%); }
+  .tour-stage .phone { width: min(330px, 100%); z-index: 1; }
+  .screen-stack { position: relative; overflow: hidden; background: #f5f8f9; }
+  .shot { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transform: scale(1.04);
+          transition: opacity .55s ease, transform .7s cubic-bezier(.2, .7, .2, 1); }
+  .shot.on { opacity: 1; transform: none; }
+
+  /* How it works */
+  .how { background: linear-gradient(180deg, var(--deep), var(--navy)); }
+  .steps { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; list-style: none; margin: 0; padding: 0; }
+  .steps::before { content: ""; position: absolute; top: 58px; left: 17%; right: 17%; height: 2px;
+                   background: repeating-linear-gradient(90deg, rgba(116, 232, 237, .35) 0 8px, transparent 8px 16px); }
+  .step { position: relative; text-align: center; padding: 0 18px; }
+  .step-ico { position: relative; display: grid; place-items: center; width: 116px; height: 116px; margin: 0 auto 26px; border-radius: 36px;
+              background: linear-gradient(160deg, var(--raised-2), var(--raised)); box-shadow: inset 0 0 0 1px var(--line), 0 24px 50px -24px rgba(19, 200, 211, .5); color: var(--aqua); }
+  .step-ico svg { width: 46px; height: 46px; }
+  .step-ico b { position: absolute; top: -10px; right: -10px; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%;
+                background: var(--cyan); color: var(--navy); font: 800 15px/1 var(--display); }
+  .step h3 { margin-bottom: 10px; }
+  .step p { color: var(--muted); max-width: 32ch; margin-inline: auto; }
+
+  /* Matches */
+  .together { background: var(--navy); }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 7vw, 100px); align-items: center; }
+  .checks { list-style: none; padding: 0; margin: 32px 0 0; display: grid; gap: 18px; }
+  .checks li { display: grid; grid-template-columns: 30px 1fr; gap: 14px; color: var(--soft); }
+  .checks li b { color: #fff; font-weight: 700; }
+  .checks svg { width: 30px; height: 30px; padding: 6px; border-radius: 10px; background: rgba(46, 229, 157, .14); color: var(--green); }
+  .mock { position: relative; max-width: 460px; margin-inline: auto; width: 100%; }
+  .match { border-radius: 28px; padding: 26px; background: #fff; color: var(--navy); box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .8); }
+  .match-top { display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 700; }
+  .tag { padding: 7px 12px; border-radius: 999px; background: #E4F8F9; color: #087F87; }
+  .when { display: flex; align-items: center; gap: 8px; color: #1E9E63; }
+  .when::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+  .match h3 { font-size: 26px; margin: 18px 0 4px; }
+  .match .sub { color: #5E737C; font-size: 15px; }
+  .match .av { box-shadow: 0 0 0 3px #fff; }
+  .match .av.empty { color: #087F87; box-shadow: 0 0 0 3px #fff, inset 0 0 0 2px rgba(8, 127, 135, .45); }
+  .match .stack-label { color: #10232C; }
+  .match-cta { display: flex; justify-content: space-between; align-items: center; margin-top: 22px; padding-top: 20px; border-top: 1px solid #E1E9EC; font-weight: 700; font-size: 15px; }
+  .match-cta .btn { box-shadow: none; }
+  .chat { position: relative; margin: -18px 0 0 auto; width: 86%; border-radius: 26px; padding: 20px; display: grid; gap: 10px;
+          background: rgba(11, 39, 51, .94); box-shadow: inset 0 0 0 1px var(--line), 0 30px 60px -24px rgba(0, 0, 0, .9);
+          -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); transform: rotate(1.5deg); }
+  .msg { max-width: 82%; padding: 11px 15px; border-radius: 18px; font-size: 15px; line-height: 1.4; }
+  .msg b { display: block; font-size: 12px; color: var(--aqua); margin-bottom: 2px; }
+  .msg.in { background: rgba(255, 255, 255, .07); border-bottom-left-radius: 6px; }
+  .msg.out { justify-self: end; background: var(--cyan); color: var(--navy); font-weight: 600; border-bottom-right-radius: 6px; }
+  .chat-note { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--muted); padding-top: 4px; }
+  .chat-note svg { width: 15px; height: 15px; flex: none; }
+
+  /* Tournaments: ball yellow is kept for competitions, as in the app */
+  .tourn { background: radial-gradient(900px 500px at 80% 50%, rgba(215, 240, 75, .1), transparent 60%), var(--deep); }
+  .tourn .eyebrow { color: var(--lime); }
+  .hl { color: var(--lime); }
+  .flow { display: flex; flex-wrap: wrap; gap: 10px; margin: 30px 0 0; list-style: none; padding: 0; }
+  .flow li { display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 999px; font-weight: 700; font-size: 15px;
+             background: rgba(215, 240, 75, .08); box-shadow: inset 0 0 0 1px rgba(215, 240, 75, .22); color: #EAF7A6; }
+  .flow li span { font: 800 12px/1 var(--display); color: var(--lime); opacity: .8; }
+  .note { margin-top: 18px; color: var(--muted); font-size: 15px; }
+  .bracket { border-radius: 28px; padding: 26px; background: linear-gradient(170deg, #0E2E3B, #081d27);
+             box-shadow: inset 0 0 0 1px rgba(215, 240, 75, .16), 0 40px 80px -30px rgba(0, 0, 0, .9); }
+  .br-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 22px; }
+  .br-title { display: flex; align-items: center; gap: 12px; font: 700 18px/1.2 var(--display); }
+  .br-title i { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 13px; background: var(--lime); color: var(--navy); flex: none; }
+  .br-title i svg { width: 22px; height: 22px; }
+  .br-title small { display: block; font: 500 13px/1.3 var(--body); color: var(--muted); }
+  .live { display: inline-flex; align-items: center; gap: 7px; padding: 6px 11px; border-radius: 999px; background: rgba(240, 106, 106, .14);
+          color: #FF8C8C; font: 800 11px/1 var(--body); letter-spacing: .1em; text-transform: uppercase; }
+  .live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; animation: blink 1.4s infinite; }
+  @keyframes blink { 50% { opacity: .25; } }
+  .br-grid { display: grid; grid-template-columns: 1fr 26px 1fr; align-items: center; }
+  .br-col { display: grid; gap: 22px; }
+  .m { border-radius: 16px; background: rgba(255, 255, 255, .05); box-shadow: inset 0 0 0 1px var(--line-2); overflow: hidden; }
+  .m.is-live { box-shadow: inset 0 0 0 1px rgba(255, 140, 140, .35); }
+  .tm { display: flex; justify-content: space-between; gap: 10px; padding: 11px 14px; font-size: 14.5px; font-weight: 600; color: var(--soft); }
+  .tm + .tm { border-top: 1px solid var(--line-2); }
+  .tm span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tm b { font-family: var(--display); color: #fff; }
+  .tm.win { color: #fff; }
+  .tm.win b { color: var(--lime); }
+  .tm.tbd { color: var(--muted); font-style: italic; }
+  .conn { position: relative; height: 54%; border: 2px solid rgba(215, 240, 75, .35); border-left: 0; border-radius: 0 12px 12px 0; }
+  .conn::after { content: ""; position: absolute; left: 100%; top: 50%; width: 12px; border-top: 2px solid rgba(215, 240, 75, .35); }
+  .final { position: relative; padding-left: 12px; }
+  .final .m { box-shadow: inset 0 0 0 1px rgba(215, 240, 75, .4); }
+  .final-label { position: absolute; bottom: calc(100% + 8px); left: 12px; font: 800 11px/1 var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--lime); }
+  .br-next { display: flex; align-items: center; gap: 10px; margin-top: 22px; padding: 14px 16px; border-radius: 16px;
+             background: rgba(215, 240, 75, .08); color: #EAF7A6; font-size: 14.5px; font-weight: 600; }
+  .br-next svg { width: 20px; height: 20px; color: var(--lime); flex: none; }
+
+  /* Clubs */
+  .clubs { background: linear-gradient(180deg, var(--deep), var(--navy)); }
+  .club-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 18px; }
+  .club { display: flex; flex-direction: column; align-items: flex-start; padding: 36px; }
+  .club-name { font: 800 clamp(40px, 5vw, 56px)/1 var(--display); letter-spacing: -.04em; margin: 22px 0 10px; }
+  .where { display: flex; align-items: center; gap: 8px; color: var(--soft); }
+  .where svg { width: 18px; height: 18px; color: var(--cyan); flex: none; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 26px; }
+  .tags span { padding: 8px 13px; border-radius: 999px; background: rgba(19, 200, 211, .1); box-shadow: inset 0 0 0 1px var(--line); font-size: 14px; font-weight: 600; color: var(--aqua); }
+  .club .soon { margin-top: auto; padding-top: 24px; width: 100%; border-top: 1px solid var(--line-2); color: var(--muted); font-size: 15px; }
+  .club .btn { margin-bottom: 26px; }
+  .owner { padding: 36px; background: linear-gradient(160deg, rgba(19, 200, 211, .16), rgba(19, 200, 211, .03) 55%), rgba(255, 255, 255, .02);
+           box-shadow: inset 0 0 0 1px var(--line); }
+  .owner h3 { font-size: clamp(28px, 3.2vw, 36px); margin: 16px 0 12px; letter-spacing: -.03em; }
+  .owner-list { list-style: none; padding: 0; margin: 24px 0 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 22px; }
+  .owner-list li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; color: var(--soft); font-size: 15.5px; line-height: 1.45; }
+  .owner-list svg { width: 22px; height: 22px; color: var(--cyan); }
+  .owner .cta-row { margin-top: 0; }
+
+  /* FAQ */
+  .faq { background: var(--navy); }
+  .faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(32px, 6vw, 90px); align-items: start; }
+  .faq-grid .section-head { margin-bottom: 0; }
+  .faq-grid .lead { margin-top: 18px; }
+  .faq-grid .lead a, details a { color: var(--aqua); }
+  .faq-list { display: grid; gap: 12px; }
+  details { border-radius: 20px; background: rgba(255, 255, 255, .035); box-shadow: inset 0 0 0 1px var(--line-2); transition: background .25s, box-shadow .25s; }
+  details[open] { background: rgba(19, 200, 211, .06); box-shadow: inset 0 0 0 1px var(--line); }
+  summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 24px; cursor: pointer; list-style: none;
+            font: 700 18px/1.35 var(--display); letter-spacing: -.01em; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: ""; flex: none; width: 10px; height: 10px; border-right: 2px solid var(--aqua); border-bottom: 2px solid var(--aqua);
+                   transform: translateY(-3px) rotate(45deg); transition: transform .25s ease; }
+  details[open] summary::after { transform: translateY(2px) rotate(-135deg); }
+  details p { padding: 0 24px 22px; color: var(--muted); }
+
+  /* Final call to action */
+  .final-cta { padding: 0 0 clamp(84px, 10vw, 120px); background: var(--navy); }
+  .cta-card { position: relative; overflow: hidden; border-radius: 36px; padding: clamp(44px, 7vw, 84px) clamp(22px, 6vw, 80px); text-align: center;
+              background: radial-gradient(700px 360px at 50% 0%, rgba(19, 200, 211, .4), transparent 70%), linear-gradient(180deg, #0E2E3B, #061C27);
+              box-shadow: inset 0 0 0 1px var(--line); }
+  .app-icon { width: 88px; height: 88px; border-radius: 24px; margin: 0 auto 26px; box-shadow: 0 20px 40px -14px rgba(19, 200, 211, .6); }
+  .cta-card h2 { font-size: clamp(36px, 5.4vw, 64px); }
+  .cta-card .lead { margin: 18px auto 0; color: var(--soft); }
+  .cta-card .cta-row { justify-content: center; }
+  .early { margin-top: 22px; color: var(--muted); font-size: 15px; }
+  .early a { color: var(--aqua); font-weight: 600; }
+
+  /* Footer */
+  footer { background: var(--deep); border-top: 1px solid var(--line-2); padding: 64px 0 40px; color: var(--muted); font-size: 15px; }
+  .foot { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 32px; }
+  .foot p { margin-top: 16px; max-width: 34ch; }
+  .foot h4 { margin: 0 0 14px; color: #fff; font: 700 15px/1 var(--body); }
+  .foot ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  .foot a { text-decoration: none; transition: color .2s; }
+  .foot a:hover { color: #fff; }
+  .foot .brand { color: var(--text); }
+  .legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line-2); font-size: 14px; }
+
+  /* Tablet */
+  @media (max-width: 1040px) {
+    .hero-grid { grid-template-columns: 1fr; text-align: center; }
+    .hero .lead { margin-inline: auto; }
+    .hero .cta-row, .hero-meta { justify-content: center; }
+    .hero-art { height: 600px; margin-top: 10px; }
+    .p-left { transform: translate(calc(-50% - 230px), calc(-50% + 34px)) rotate(-9deg); }
+    .p-right { transform: translate(calc(-50% + 230px), calc(-50% + 34px)) rotate(9deg); }
+    .chip-1 { left: 8%; } .chip-2 { right: 6%; } .chip-3 { left: 12%; }
+    .tour-grid { grid-template-columns: 1fr 340px; }
+    .card-price { grid-template-columns: 1fr; }
+    .faq-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 900px) {
+    .links { position: fixed; inset: 72px 0 auto 0; flex-direction: column; align-items: stretch; gap: 0; margin: 0;
+             padding: 8px 16px 22px; background: var(--deep); border-bottom: 1px solid var(--line-2);
+             opacity: 0; visibility: hidden; transform: translateY(-8px); transition: opacity .25s ease, transform .25s ease, visibility .25s; }
+    .menu-open .links { opacity: 1; visibility: visible; transform: none; }
+    .links a { padding: 15px 4px; font-size: 17px; border-bottom: 1px solid var(--line-2); }
+    .nav-cta { margin-left: auto; }
+    .menu-btn { display: inline-flex; }
+    .bento { grid-template-columns: 1fr 1fr; }
+    .span-4 { grid-column: span 2; }
+    .span-2 { grid-column: span 1; }
+    .tour-grid { grid-template-columns: 1fr; }
+    .tour-stage { order: -1; }
+    .tour-stage .phone { width: min(280px, 72vw); }
+    .steps { grid-template-columns: 1fr; gap: 44px; }
+    .steps::before { display: none; }
+    .split { grid-template-columns: 1fr; }
+    .split .mock { order: 2; }
+    .club-grid { grid-template-columns: 1fr; }
+    .foot { grid-template-columns: 1fr 1fr; }
+    .foot > div:first-child { grid-column: span 2; }
+  }
+  /* Phone */
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .nav-cta { padding: 11px 15px; }
+    .hero { padding: 112px 0 56px; }
+    .pill-more { display: none; }
+    .hero-art { height: 470px; }
+    .p-main { width: 224px; }
+    .p-left, .p-right { width: 176px; }
+    .p-left { transform: translate(calc(-50% - 112px), calc(-50% + 26px)) rotate(-9deg); }
+    .p-right { transform: translate(calc(-50% + 112px), calc(-50% + 26px)) rotate(9deg); }
+    .phone { border-radius: 34px; padding: 7px; }
+    .phone img, .screen-stack { border-radius: 28px; }
+    .chip { padding: 9px 12px 9px 9px; gap: 9px; border-radius: 15px; }
+    .chip i { width: 30px; height: 30px; border-radius: 10px; }
+    .chip i svg { width: 16px; height: 16px; }
+    .chip b { font-size: 12.5px; }
+    .chip small { font-size: 11px; }
+    .chip-1 { top: 5%; left: 0; } .chip-2 { right: 0; top: 47%; } .chip-3 { bottom: 3%; left: 2%; }
+    .cta-row { gap: 12px; }
+    .hero .btn-ghost { display: none; }
+    .bento { grid-template-columns: 1fr; }
+    .span-4, .span-2 { grid-column: auto; }
+    .card { padding: 26px 22px; }
+    .pt { padding: 24px 6px 16px; }
+    .pt b { font-size: 28px; }
+    .pt span { font-size: 17px; }
+    .tour-tab { padding: 16px; grid-template-columns: 34px 1fr; gap: 10px; }
+    .tour-tab strong { font-size: 18px; }
+    .tour-tab .bar { left: 16px; right: 16px; }
+    .match { padding: 22px; }
+    .chat { width: 94%; }
+    .bracket { padding: 20px 14px; }
+    .br-title { font-size: 16px; }
+    .tm { padding: 10px; font-size: 13px; }
+    .br-grid { grid-template-columns: 1fr 16px 1fr; }
+    .conn::after { width: 8px; }
+    .final { padding-left: 8px; }
+    .club, .owner { padding: 28px 22px; }
+    .owner-list { grid-template-columns: 1fr; }
+    .owner .cta-row .btn { flex: 1 1 auto; }
+    summary { padding: 18px 20px; font-size: 16.5px; }
+    details p { padding: 0 20px 20px; }
+    .foot { grid-template-columns: 1fr 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .track { width: auto; justify-content: center; }
+    .track ul[aria-hidden] { display: none; }
+    .track ul { flex-wrap: wrap; justify-content: center; row-gap: 12px; padding-inline: 16px; }
+  }
+</style>
 </head>
 <body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M5 3.6v16.8c0 .8.9 1.3 1.6.9l14-8.4c.7-.4.7-1.4 0-1.8l-14-8.4C5.9 2.3 5 2.8 5 3.6z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.2 4.2L19 7"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15L6 16zM10 21h4"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9-9-9z"/><circle cx="8" cy="8" r="1.6" fill="currentColor"/></g></symbol>
+    <symbol id="i-store" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 10v10h16V10M3 4h18l-1.5 6h-15L3 4z"/><path d="M10 20v-5h4v5"/></g></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.2-5.5 6.5-5.5s5.9 1.9 6.5 5.5"/><path d="M16 4.8a3.5 3.5 0 0 1 0 6.4M18.5 14.8c1.6.8 2.7 2.4 3 5.2"/></g></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></g></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.6-3.3 8.1-8 9-4.7-.9-8-4.4-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5" stroke-linecap="round"/></g></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol>
+    <symbol id="i-tap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></g></symbol>
+    <symbol id="i-racket" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><ellipse cx="13.5" cy="9" rx="6" ry="6.5" transform="rotate(35 13.5 9)"/><path d="M8.6 13.6L3.5 19.5"/><circle cx="19" cy="19" r="1.8"/></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5a7 7 0 1 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4M12 14v4M8 20h8"/></g></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 20h16M7 16v-5M12 16V7M17 16v-8"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6h10M10 12h10M10 18h10"/><path d="M3.5 6l1.5 1.5L7.5 5M3.5 12l1.5 1.5 2.5-2.5M3.5 18l1.5 1.5 2.5-2.5"/></g></symbol>
+    <symbol id="i-court" viewBox="0 0 1000 500"><g fill="none" stroke="currentColor"><rect x="3" y="3" width="994" height="494" rx="6" stroke-width="5"/><path d="M500 3v494" stroke-width="9"/><path d="M153 3v494M847 3v494M153 250h694" stroke-width="5"/></g></symbol>
+  </defs>
+</svg>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="Oncourt home">
+      <img src="assets/icon-192.png" alt="" width="38" height="38">
+      <span><b>on</b>court</span>
+    </a>
+    <div class="links" id="menu">
+      <a href="#why">Why Oncourt</a>
+      <a href="#tour">The app</a>
+      <a href="#tournaments">Tournaments</a>
+      <a href="#clubs">For clubs</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a class="btn btn-primary btn-sm nav-cta" href="#get">Get the app</a>
+    <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <svg class="court" viewBox="0 0 1000 500" aria-hidden="true"><use href="#i-court"/></svg>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="pill"><i class="dot"></i>Early access on Android<span class="pill-more"> · Padel at BlackShot, Byblos</span></span>
+      <h1>Book a court<br>in seconds.<br><span class="grad">Pay at the club.</span></h1>
+      <p class="lead">Oncourt shows you every free time and the exact price at clubs in Lebanon. Pick 60, 90 or 120 minutes, confirm, and show up to play. No card and no booking fee.</p>
+      <div class="cta-row">
+        <a class="store" href="https://play.google.com/store/apps/details?id=app.oncourt" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-play"/></svg>
+          <span><small>Get it on</small><strong>Google Play</strong></span>
+        </a>
+        <a class="btn btn-ghost" href="#tour">See the app <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <ul class="hero-meta">
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Free to use</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>No booking fee</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>iPhone coming soon</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <div class="phone p-left"><img src="assets/screen-explore.webp" width="600" height="1067" alt="Explore screen listing BlackShot in Byblos, from $32"></div>
+      <div class="phone p-right"><img src="assets/screen-review.webp" width="600" height="1067" alt="Review booking screen: 90 minutes, $42, pay at the club"></div>
+      <div class="phone p-main"><img src="assets/screen-duration.webp" width="600" height="1067" alt="Choosing 60, 90 or 120 minutes with the price of each, then a free time" fetchpriority="high"></div>
+      <div class="chip chip-1" aria-hidden="true"><i><svg><use href="#i-check"/></svg></i><span><b>Booking confirmed</b><small>Court 1 · 1:00 PM</small></span></div>
+      <div class="chip chip-2" aria-hidden="true"><i><svg><use href="#i-tag"/></svg></i><span><b>90 min · $42</b><small>Best value</small></span></div>
+      <div class="chip chip-3" aria-hidden="true"><i><svg><use href="#i-bell"/></svg></i><span><b>You play in 1 hour</b><small>BlackShot · Court 1</small></span></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-label="Highlights">
+  <div class="track">
+    <ul>
+      <li>60, 90 or 120 minutes</li>
+      <li>The exact price on every slot</li>
+      <li>No booking fee</li>
+      <li>Pay at the club</li>
+      <li>Open matches at your level</li>
+      <li>Match chat</li>
+      <li>Live tournament brackets</li>
+      <li>Reminder an hour before</li>
+      <li>Invite friends on WhatsApp</li>
+    </ul>
+    <ul aria-hidden="true">
+      <li>60, 90 or 120 minutes</li>
+      <li>The exact price on every slot</li>
+      <li>No booking fee</li>
+      <li>Pay at the club</li>
+      <li>Open matches at your level</li>
+      <li>Match chat</li>
+      <li>Live tournament brackets</li>
+      <li>Reminder an hour before</li>
+      <li>Invite friends on WhatsApp</li>
+    </ul>
+  </div>
+</div>
+
 <main>
-  <div class="logo"><span>On</span>court</div>
-  <p>Book padel, football, basketball, tennis and volleyball courts, join matches
-     and play with friends across Lebanon. Pay at the club.</p>
-  <p>The Oncourt app for Android and iPhone is coming soon.</p>
-  <p class="support">Help and support:
-     <a href="mailto:support@oncourtlb.com">support@oncourtlb.com</a></p>
-  <nav>
-    <a href="privacy/">Privacy policy</a>
-    <a href="terms/">Terms of use</a>
-    <a href="delete-account/">Delete your account</a>
-  </nav>
+<section class="section why" id="why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Why Oncourt</span>
+      <h2>No calls. No guessing.<br><span class="grad">Just play.</span></h2>
+      <p class="lead">Booking a court used to mean calling the club, waiting for an answer and hoping the price was right. Oncourt puts all of it on one screen.</p>
+    </div>
+    <div class="bento">
+      <article class="card span-4 card-price reveal">
+        <div>
+          <span class="ico"><svg aria-hidden="true"><use href="#i-tag"/></svg></span>
+          <h3>The exact price, before you book</h3>
+          <p>Each club sets its own price for 60, 90 and 120 minutes. You see it on every time slot, so there are no surprises at the desk.</p>
+        </div>
+        <div>
+          <div class="prices" aria-label="Session prices at BlackShot">
+            <div class="pt"><b>60</b><small>min</small><span>$32</span></div>
+            <div class="pt best"><em>Best value</em><b>90</b><small>min</small><span>$42</span></div>
+            <div class="pt"><b>120</b><small>min</small><span>$56</span></div>
+          </div>
+          <p class="fine">Prices at BlackShot, Byblos</p>
+        </div>
+      </article>
+      <article class="card span-2 reveal d1">
+        <span class="ico"><svg aria-hidden="true"><use href="#i-store"/></svg></span>
+        <h3>No card. No booking fee.</h3>
+        <p>Booking is free. You pay the club when you arrive, by cash or card.</p>
+        <div class="zero" aria-hidden="true">$0<span>to book</span></div>
+      </article>
+      <article class="card span-2 reveal">
+        <span class="ico"><svg aria-hidden="true"><use href="#i-users"/></svg></span>
+        <h3>Never short of a fourth</h3>
+        <p>Turn your booking into an open match and let players at your level fill the spots.</p>
+        <div class="stack" aria-hidden="true">
+          <span class="av a1">RK</span><span class="av a2">MA</span><span class="av a3">JT</span><span class="av empty">+</span>
+          <span class="stack-label">1 spot left</span>
+        </div>
+      </article>
+      <article class="card span-2 reveal d1">
+        <span class="ico"><svg aria-hidden="true"><use href="#i-link"/></svg></span>
+        <h3>Made for how Lebanon plays</h3>
+        <p>Send one link on WhatsApp. Your friends tap it and land straight in the match.</p>
+        <div class="link-chip" aria-hidden="true"><svg><use href="#i-link"/></svg><span>oncourtlb.com/join</span></div>
+      </article>
+      <article class="card span-2 reveal d2">
+        <span class="ico"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>
+        <h3>Safe and respectful</h3>
+        <p>Report or block any player in two taps. Our team reviews every report within 24 hours, and match chats are deleted after the game.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section tour auto" id="tour">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Inside the app</span>
+      <h2>Everything you need<br>to play, in one app</h2>
+      <p class="lead">Find a court, pick your time, fill your team and follow your tournament. Here is how it looks.</p>
+    </div>
+    <div class="tour-grid">
+      <ol class="tour-tabs" role="tablist" aria-label="App screens">
+        <li><button class="tour-tab on" role="tab" type="button" aria-selected="true" aria-controls="tour-stage">
+          <span class="num">01</span><span><strong>Pick your length</strong><span class="d"><span><span>60, 90 or 120 minutes, each with the club's own price. The best value is marked for you.</span></span></span></span><i class="bar"></i></button></li>
+        <li><button class="tour-tab" role="tab" type="button" aria-selected="false" aria-controls="tour-stage" tabindex="-1">
+          <span class="num">02</span><span><strong>Find a court fast</strong><span class="d"><span><span>Search by sport or area. Filter by tonight, available now, indoor or outdoor, and switch between list and map.</span></span></span></span><i class="bar"></i></button></li>
+        <li><button class="tour-tab" role="tab" type="button" aria-selected="false" aria-controls="tour-stage" tabindex="-1">
+          <span class="num">03</span><span><strong>Every court, every detail</strong><span class="d"><span><span>Photos, opening hours, directions and a call button, with every session price on the court.</span></span></span></span><i class="bar"></i></button></li>
+        <li><button class="tour-tab" role="tab" type="button" aria-selected="false" aria-controls="tour-stage" tabindex="-1">
+          <span class="num">04</span><span><strong>Confirm in seconds</strong><span class="d"><span><span>Check the court, the time and the total, then confirm. Nothing is charged in the app.</span></span></span></span><i class="bar"></i></button></li>
+        <li><button class="tour-tab" role="tab" type="button" aria-selected="false" aria-controls="tour-stage" tabindex="-1">
+          <span class="num">05</span><span><strong>Play your way</strong><span class="d"><span><span>Book a court for your group, create a match and find players, join one, or see what's free right now.</span></span></span></span><i class="bar"></i></button></li>
+        <li><button class="tour-tab" role="tab" type="button" aria-selected="false" aria-controls="tour-stage" tabindex="-1">
+          <span class="num">06</span><span><strong>Your home screen</strong><span class="d"><span><span>Partner clubs, their latest deals and the games you can still join tonight.</span></span></span></span><i class="bar"></i></button></li>
+      </ol>
+      <div class="tour-stage" id="tour-stage" role="tabpanel">
+        <div class="phone">
+          <div class="screen-stack">
+            <img class="shot on" src="assets/screen-duration.webp" width="600" height="1067" alt="Choosing 60, 90 or 120 minutes, each with its price" loading="lazy">
+            <img class="shot" src="assets/screen-explore.webp" width="600" height="1067" alt="Explore screen with search, filters and a list of clubs" loading="lazy">
+            <img class="shot" src="assets/screen-venue.webp" width="600" height="1067" alt="BlackShot club page with hours, directions and court prices" loading="lazy">
+            <img class="shot" src="assets/screen-review.webp" width="600" height="1067" alt="Review booking screen with the total and pay at the club" loading="lazy">
+            <img class="shot" src="assets/screen-play.webp" width="600" height="1067" alt="How do you want to play: book a court, create a match, find a match or play now" loading="lazy">
+            <img class="shot" src="assets/screen-home.webp" width="600" height="1067" alt="Home screen with the BlackShot partner card and sports" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section how" id="how">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>From your couch<br>to the court</h2>
+    </div>
+    <ol class="steps">
+      <li class="step reveal">
+        <div class="step-ico"><svg aria-hidden="true"><use href="#i-calendar"/></svg><b>1</b></div>
+        <h3>Pick a club and a time</h3>
+        <p>See every free slot for the coming days, with the price right on it.</p>
+      </li>
+      <li class="step reveal d1">
+        <div class="step-ico"><svg aria-hidden="true"><use href="#i-tap"/></svg><b>2</b></div>
+        <h3>Confirm in seconds</h3>
+        <p>One tap and the court is yours. The confirmation lands on your phone right away.</p>
+      </li>
+      <li class="step reveal d2">
+        <div class="step-ico"><svg aria-hidden="true"><use href="#i-racket"/></svg><b>3</b></div>
+        <h3>Show up and play</h3>
+        <p>We remind you an hour before. Pay the club when you get there.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section together" id="matches">
+  <div class="wrap split">
+    <div class="mock reveal" aria-hidden="true">
+      <div class="match">
+        <div class="match-top"><span class="tag">Padel</span><span class="when">Tonight · 8:00 PM</span></div>
+        <h3>Open match</h3>
+        <p class="sub">BlackShot · Court 1 · 90 min · Intermediate</p>
+        <div class="stack">
+          <span class="av a1">RK</span><span class="av a2">MA</span><span class="av a3">JT</span><span class="av empty">+</span>
+          <span class="stack-label">3 of 4 players</span>
+        </div>
+        <div class="match-cta"><span>1 spot left</span><span class="btn btn-primary btn-sm">Join match</span></div>
+      </div>
+      <div class="chat">
+        <div class="msg in"><b>Rami</b>Who's bringing balls?</div>
+        <div class="msg out">I've got them. See you at 8</div>
+        <div class="msg in"><b>Maya</b>Same teams as last week?</div>
+        <div class="chat-note"><svg><use href="#i-clock"/></svg>Match chat is deleted after the game</div>
+      </div>
+    </div>
+    <div class="reveal d1">
+      <span class="eyebrow">Matches</span>
+      <h2 style="margin:16px 0 18px">Got the court?<br><span class="grad">Fill the team.</span></h2>
+      <p class="lead">Oncourt is more than bookings. It's where you find people to play with.</p>
+      <ul class="checks">
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Join open matches at your level.</b> Pick a game that fits your time and your skill.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Create a match.</b> Book the court and let players fill the open spots.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Chat with your match.</b> Agree on teams and timing. Only the players see it.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Your player profile.</b> Your level and playing style in each sport, plus your friends and their matches.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section tourn" id="tournaments">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">Tournaments</span>
+      <h2 style="margin:16px 0 18px">Enter as a team.<br><span class="hl">Lift the trophy.</span></h2>
+      <p class="lead">Clubs publish tournaments in the app. Build your team, invite friends or share your team link, then follow the draw, your next match and the bracket live.</p>
+      <ol class="flow">
+        <li><span>01</span>Build a team</li>
+        <li><span>02</span>Enter</li>
+        <li><span>03</span>Follow the draw</li>
+        <li><span>04</span>Lift the trophy</li>
+      </ol>
+      <p class="note">Entry is paid at the club.</p>
+    </div>
+    <div class="mock reveal d1" aria-hidden="true">
+      <div class="bracket">
+        <div class="br-head">
+          <div class="br-title"><i><svg><use href="#i-trophy"/></svg></i><span>Padel Cup<small>Semi-finals</small></span></div>
+          <span class="live">Live</span>
+        </div>
+        <div class="br-grid">
+          <div class="br-col">
+            <div class="m"><div class="tm win"><span>Net Ninjas</span><b>6</b></div><div class="tm"><span>Late Lobs</span><b>4</b></div></div>
+            <div class="m is-live"><div class="tm"><span>Wall Breakers</span><b>3</b></div><div class="tm"><span>Byblos Smash</span><b>2</b></div></div>
+          </div>
+          <div class="conn"></div>
+          <div class="final">
+            <div class="final-label">Final</div>
+            <div class="m"><div class="tm"><span>Net Ninjas</span><b>·</b></div><div class="tm tbd"><span>Winner of SF2</span><b>·</b></div></div>
+          </div>
+        </div>
+        <div class="br-next"><svg><use href="#i-bell"/></svg>Your next match: the final, Saturday 7:00 PM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section clubs" id="clubs">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Clubs</span>
+      <h2>Where you can play</h2>
+      <p class="lead">We're starting with padel in Byblos. More clubs and sports are joining soon.</p>
+    </div>
+    <div class="club-grid">
+      <article class="card club reveal">
+        <span class="ico"><svg aria-hidden="true"><use href="#i-racket"/></svg></span>
+        <div class="club-name">BlackShot</div>
+        <div class="where"><svg aria-hidden="true"><use href="#i-pin"/></svg>Byblos (Jbeil), near LAU Jbeil Campus</div>
+        <div class="tags"><span>Padel</span><span>Indoor court</span><span>From $32</span><span>60 · 90 · 120 min</span></div>
+        <a class="btn btn-primary" href="#get">Book BlackShot in the app <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <p class="soon">The app is ready for football, basketball, tennis and volleyball too. New clubs show up in the app as soon as they join.</p>
+      </article>
+      <article class="card owner reveal d1" id="partners">
+        <span class="eyebrow">For club owners</span>
+        <h3>Fill your courts with Oncourt</h3>
+        <p>A simple dashboard to run your club, and an app that puts your courts in front of players.</p>
+        <ul class="owner-list">
+          <li><svg aria-hidden="true"><use href="#i-calendar"/></svg>Bookings calendar, walk-ins and blocked time</li>
+          <li><svg aria-hidden="true"><use href="#i-tag"/></svg>Your own prices for 60, 90 and 120 minutes</li>
+          <li><svg aria-hidden="true"><use href="#i-bell"/></svg>Deals and promotions players see in the app</li>
+          <li><svg aria-hidden="true"><use href="#i-chart"/></svg>Customers, occupancy and revenue at a glance</li>
+          <li><svg aria-hidden="true"><use href="#i-trophy"/></svg>Tournaments with teams and the draw</li>
+          <li><svg aria-hidden="true"><use href="#i-list"/></svg>Paid, completed and no-show tracking</li>
+        </ul>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:support@oncourtlb.com?subject=Partner%20club%20on%20Oncourt">Become a partner</a>
+          <a class="btn btn-ghost" href="venue/">Club login</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section faq" id="faq">
+  <div class="wrap faq-grid">
+    <div class="section-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2>Questions,<br>answered</h2>
+      <p class="lead">Anything else? Write to <a href="mailto:support@oncourtlb.com">support@oncourtlb.com</a>.</p>
+    </div>
+    <div class="faq-list reveal d1">
+      <details open>
+        <summary>Is Oncourt free?</summary>
+        <p>Yes. Downloading the app and booking a court are free. You only pay the court price, at the club.</p>
+      </details>
+      <details>
+        <summary>Do I pay in the app?</summary>
+        <p>No. Nothing is charged in the app. You pay the club directly when you arrive, by cash or card.</p>
+      </details>
+      <details>
+        <summary>Can I cancel a booking?</summary>
+        <p>Yes, in the app, within the club's free-cancellation window. You see the window before you confirm.</p>
+      </details>
+      <details>
+        <summary>Which clubs and sports are on Oncourt?</summary>
+        <p>Padel at BlackShot in Byblos for now. More clubs are joining, and the app already supports football, basketball, tennis and volleyball.</p>
+      </details>
+      <details>
+        <summary>Is Oncourt on iPhone?</summary>
+        <p>Oncourt is on Android through Google Play. The iPhone version is coming soon.</p>
+      </details>
+      <details>
+        <summary>The Google Play page doesn't open for me. Why?</summary>
+        <p>Oncourt is in early access while we test it with a first group of players. Send us the Gmail you use on your Android phone and we'll add you: <a href="mailto:support@oncourtlb.com?subject=Oncourt%20early%20access&amp;body=My%20Gmail%3A%20">support@oncourtlb.com</a>.</p>
+      </details>
+      <details>
+        <summary>How do I delete my account?</summary>
+        <p>In the app, go to Profile, then Settings, then Delete account. You can also <a href="delete-account/">ask us here</a>.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta" id="get">
+  <div class="wrap">
+    <div class="cta-card reveal">
+      <img class="app-icon" src="assets/icon-192.png" width="88" height="88" alt="Oncourt app icon" loading="lazy">
+      <h2>Your next game is<br><span class="grad">a tap away.</span></h2>
+      <p class="lead">Get Oncourt on Android and book your first court today.</p>
+      <div class="cta-row">
+        <a class="store" href="https://play.google.com/store/apps/details?id=app.oncourt" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-play"/></svg>
+          <span><small>Get it on</small><strong>Google Play</strong></span>
+        </a>
+      </div>
+      <p class="early">In early access. Not opening for you yet? <a href="mailto:support@oncourtlb.com?subject=Oncourt%20early%20access&amp;body=My%20Gmail%3A%20">Email us your Gmail</a> and we'll add you.</p>
+    </div>
+  </div>
+</section>
 </main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="#top"><img src="assets/icon-192.png" alt="" width="38" height="38" loading="lazy"><span><b>on</b>court</span></a>
+        <p>Book courts, join matches and play tournaments in Lebanon. Pay at the club.</p>
+      </div>
+      <div>
+        <h4>App</h4>
+        <ul>
+          <li><a href="#why">Why Oncourt</a></li>
+          <li><a href="#tour">The app</a></li>
+          <li><a href="#tournaments">Tournaments</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=app.oncourt" target="_blank" rel="noopener">Google Play</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Clubs</h4>
+        <ul>
+          <li><a href="mailto:support@oncourtlb.com?subject=Partner%20club%20on%20Oncourt">Become a partner</a></li>
+          <li><a href="venue/">Club login</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul>
+          <li><a href="mailto:support@oncourtlb.com">support@oncourtlb.com</a></li>
+          <li><a href="privacy/">Privacy policy</a></li>
+          <li><a href="terms/">Terms of use</a></li>
+          <li><a href="delete-account/">Delete your account</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>&copy; <span id="year">2026</span> Oncourt Lebanon</span>
+      <span>Made for players in Lebanon</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Nav: solid background once the page scrolls, plus the phone menu.
+  var nav = document.querySelector('.nav');
+  var menuBtn = document.querySelector('.menu-btn');
+  function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 12); }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  function setMenu(open) {
+    nav.classList.toggle('menu-open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+  }
+  menuBtn.addEventListener('click', function () { setMenu(!nav.classList.contains('menu-open')); });
+  document.querySelectorAll('#menu a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+
+  // Fade sections in as they come into view.
+  var items = document.querySelectorAll('.reveal');
+  if (!reduce && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    items.forEach(function (el) { io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  // Card glow follows the pointer.
+  document.querySelectorAll('.card').forEach(function (c) {
+    c.addEventListener('pointermove', function (e) {
+      var r = c.getBoundingClientRect();
+      c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+
+  // App tour: each tab shows its screen. It moves on by itself until someone picks a tab.
+  var tour = document.getElementById('tour');
+  var tabs = Array.prototype.slice.call(tour.querySelectorAll('.tour-tab'));
+  var shots = Array.prototype.slice.call(tour.querySelectorAll('.shot'));
+  var current = 0, timer = null, auto = !reduce, visible = false;
+  var STEP = 5500;
+  if (!auto) tour.classList.remove('auto');
+  function schedule() {
+    clearTimeout(timer);
+    if (auto && visible) timer = setTimeout(function () { show((current + 1) % tabs.length); }, STEP);
+  }
+  function show(i, byUser) {
+    current = i;
+    tabs.forEach(function (t, k) {
+      var on = k === i;
+      t.classList.toggle('on', on);
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      if (on) { var bar = t.querySelector('.bar'); bar.style.display = 'none'; void bar.offsetWidth; bar.style.display = ''; }
+    });
+    shots.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+    if (byUser) { auto = false; tour.classList.remove('auto'); }
+    schedule();
+  }
+  tabs.forEach(function (t, k) {
+    t.addEventListener('click', function () { show(k, true); });
+    t.addEventListener('keydown', function (e) {
+      var d = (e.key === 'ArrowDown' || e.key === 'ArrowRight') ? 1 : (e.key === 'ArrowUp' || e.key === 'ArrowLeft') ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      var n = (current + d + tabs.length) % tabs.length;
+      show(n, true);
+      tabs[n].focus();
+    });
+  });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      visible = entries[0].isIntersecting;
+      if (visible) show(current); else clearTimeout(timer);
+    }, { threshold: 0.35 }).observe(tour);
+  }
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
 </body>
 </html>
