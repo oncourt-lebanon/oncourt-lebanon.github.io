@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get Oncourt</title>
+  <meta name="description" content="Download Oncourt on the App Store or Google Play.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="../assets/favicon-32.png">
+  <script>
+    // Sends phones straight to their store; computers see both badges.
+    (function () {
+      var ua = navigator.userAgent;
+      var ios = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
+      if (ios) location.replace('https://apps.apple.com/lb/app/oncourt-book-courts/id6831710068');
+      else if (/Android/i.test(ua)) location.replace('https://play.google.com/store/apps/details?id=app.oncourt');
+    })();
+  </script>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 16px;
+           background: radial-gradient(700px 420px at 80% 0%, rgba(19, 200, 211, .3), transparent 65%), #030E14;
+           color: #F2F8FA; font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; text-align: center; }
+    main { width: min(440px, 100%); padding: 44px 26px; border-radius: 28px; background: rgba(255, 255, 255, .04);
+           box-shadow: inset 0 0 0 1px rgba(116, 232, 237, .16); }
+    img.icon { width: 72px; height: 72px; border-radius: 18px; margin: 0 auto 18px; display: block; }
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -.03em; }
+    p { margin: 0; color: #8FA7B0; }
+    .badges { display: grid; gap: 12px; justify-items: center; margin-top: 28px; }
+    .badges img { height: 52px; width: auto; display: block; }
+    a.home { display: inline-block; margin-top: 26px; color: #74E8ED; font-weight: 600; text-decoration: none; }
+  </style>
+</head>
+<body>
+<main>
+  <img class="icon" src="../assets/icon-192.png" alt="Oncourt app icon" width="72" height="72">
+  <h1>Get Oncourt</h1>
+  <p>Book courts in Lebanon in seconds. Pay at the club.</p>
+  <div class="badges">
+    <a href="https://apps.apple.com/lb/app/oncourt-book-courts/id6831710068"><img src="../assets/badges/app-store.svg" width="156" height="52" alt="Download on the App Store"></a>
+    <a href="https://play.google.com/store/apps/details?id=app.oncourt"><img src="../assets/badges/google-play.png" width="175" height="52" alt="Get it on Google Play"></a>
+  </div>
+  <a class="home" href="../">oncourtlb.com</a>
+</main>
+</body>
+</html>
