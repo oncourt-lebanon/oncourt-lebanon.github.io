@@ -35,11 +35,11 @@
   "@context": "https://schema.org",
   "@type": "MobileApplication",
   "name": "Oncourt",
-  "operatingSystem": "Android",
+  "operatingSystem": "iOS, Android",
   "applicationCategory": "SportsApplication",
   "description": "Book padel courts in Lebanon in seconds. See every free time and the exact price, play 60, 90 or 120 minutes, join matches and tournaments, and pay at the club.",
   "url": "https://oncourtlb.com/",
-  "downloadUrl": "https://play.google.com/store/apps/details?id=app.oncourt",
+  "downloadUrl": ["https://apps.apple.com/lb/app/oncourt-book-courts/id6831710068", "https://play.google.com/store/apps/details?id=app.oncourt"],
   "image": "https://oncourtlb.com/assets/icon-192.png",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
   "publisher": { "@type": "Organization", "name": "Oncourt", "url": "https://oncourtlb.com/", "email": "support@oncourtlb.com" }
@@ -115,6 +115,8 @@
            box-shadow: 0 18px 40px -20px rgba(116, 232, 237, .7), inset 0 -1px 0 rgba(6, 28, 39, .08); }
   .store:hover { transform: translateY(-1px); }
   .store svg { width: 24px; height: 24px; flex: none; }
+  /* App Store and Google Play buttons side by side or stacked: same width. */
+  .cta-row .store { min-width: 200px; }
   .store span { display: grid; line-height: 1.05; }
   .store small { font: 700 10px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; opacity: .62; margin-bottom: 5px; }
   .store strong { font: 800 20px/1 var(--display); letter-spacing: -.015em; }
@@ -592,6 +594,7 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M5 3.6v16.8c0 .8.9 1.3 1.6.9l14-8.4c.7-.4.7-1.4 0-1.8l-14-8.4C5.9 2.3 5 2.8 5 3.6z"/></symbol>
+    <symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M16.37 12.62c-.02-2.33 1.9-3.45 1.99-3.5-1.08-1.59-2.77-1.8-3.37-1.83-1.43-.15-2.8.85-3.53.85-.73 0-1.85-.83-3.04-.8-1.56.02-3 .91-3.81 2.31-1.62 2.82-.42 7 1.17 9.29.77 1.12 1.7 2.38 2.91 2.33 1.17-.05 1.61-.75 3.02-.75 1.41 0 1.81.75 3.04.73 1.26-.02 2.05-1.14 2.82-2.27.89-1.3 1.25-2.56 1.27-2.62-.03-.01-2.44-.94-2.47-3.73zM14.06 5.77c.64-.78 1.08-1.86.96-2.94-.93.04-2.05.62-2.72 1.4-.6.69-1.12 1.79-.98 2.85 1.04.08 2.1-.53 2.74-1.31z"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.2 4.2L19 7"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-bell" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15L6 16zM10 21h4"/></symbol>
@@ -632,10 +635,14 @@
   <svg class="court" viewBox="0 0 1000 500" aria-hidden="true"><use href="#i-court"/></svg>
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="pill"><i class="dot"></i><span>Early access on Android<span class="pill-more"> · Padel at BlackShot, Byblos</span></span></span>
+      <span class="pill"><i class="dot"></i><span>Now on the App Store<span class="pill-more"> · Padel at BlackShot, Byblos</span></span></span>
       <h1>Book a court<br>in seconds.<br><span class="grad">Pay at the club.</span></h1>
       <p class="lead">Every free time and the exact price at clubs in Lebanon, on one screen. Pick 60, 90 or 120 minutes, confirm, and show up to play. No card and no booking fee.</p>
       <div class="cta-row">
+        <a class="store" href="https://apps.apple.com/lb/app/oncourt-book-courts/id6831710068" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-apple"/></svg>
+          <span><small>Download on the</small><strong>App Store</strong></span>
+        </a>
         <a class="store" href="https://play.google.com/store/apps/details?id=app.oncourt" target="_blank" rel="noopener">
           <svg aria-hidden="true"><use href="#i-play"/></svg>
           <span><small>Get it on</small><strong>Google Play</strong></span>
@@ -645,7 +652,7 @@
       <ul class="hero-meta">
         <li><svg aria-hidden="true"><use href="#i-check"/></svg>Free to use</li>
         <li><svg aria-hidden="true"><use href="#i-check"/></svg>No booking fee</li>
-        <li><svg aria-hidden="true"><use href="#i-check"/></svg>iPhone coming soon</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>iPhone and Android</li>
       </ul>
     </div>
     <div class="hero-art">
@@ -870,7 +877,7 @@
           <div class="where"><svg aria-hidden="true"><use href="#i-pin"/></svg>Byblos (Jbeil), near LAU Jbeil Campus</div>
           <div class="tags"><span>Padel</span><span>Indoor court</span><span>From $32</span><span>60 · 90 · 120 min</span></div>
         </div>
-        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=app.oncourt" target="_blank" rel="noopener">Book in the app <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-primary" href="#get">Book in the app <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </article>
       <article class="card next-club reveal d1">
         <div>
@@ -975,7 +982,11 @@
       </details>
       <details>
         <summary>Is Oncourt on iPhone?</summary>
-        <p>Oncourt is on Android through Google Play. The iPhone version is coming soon.</p>
+        <p>Yes. Oncourt is on the <a href="https://apps.apple.com/lb/app/oncourt-book-courts/id6831710068" target="_blank" rel="noopener">App Store</a> for iPhone, and on Android through Google Play.</p>
+      </details>
+      <details>
+        <summary>The App Store says Oncourt isn't available. Why?</summary>
+        <p>Oncourt is in the App Store in Lebanon for now. Your Apple Account's country or region needs to be Lebanon (Settings, then your name, then Media &amp; Purchases).</p>
       </details>
       <details>
         <summary>The Google Play page doesn't open for me. Why?</summary>
@@ -998,14 +1009,18 @@
     <div class="cta-card reveal">
       <img class="app-icon" src="assets/icon-192.png" width="84" height="84" alt="Oncourt app icon" loading="lazy">
       <h2>See you on court.</h2>
-      <p class="lead">Get Oncourt on Android and book your first court tonight.</p>
+      <p class="lead">Get Oncourt on iPhone or Android and book your first court tonight.</p>
       <div class="cta-row">
+        <a class="store" href="https://apps.apple.com/lb/app/oncourt-book-courts/id6831710068" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-apple"/></svg>
+          <span><small>Download on the</small><strong>App Store</strong></span>
+        </a>
         <a class="store" href="https://play.google.com/store/apps/details?id=app.oncourt" target="_blank" rel="noopener">
           <svg aria-hidden="true"><use href="#i-play"/></svg>
           <span><small>Get it on</small><strong>Google Play</strong></span>
         </a>
       </div>
-      <p class="early">In early access. Not opening for you yet? <a href="mailto:support@oncourtlb.com?subject=Oncourt%20early%20access&amp;body=My%20Gmail%3A%20">Email us your Gmail</a> and we'll add you.</p>
+      <p class="early">Android is in early access. Google Play not opening for you yet? <a href="mailto:support@oncourtlb.com?subject=Oncourt%20early%20access&amp;body=My%20Gmail%3A%20">Email us your Gmail</a> and we'll add you.</p>
     </div>
   </div>
 </section>
@@ -1024,6 +1039,7 @@
           <li><a href="#why">Why Oncourt</a></li>
           <li><a href="#tour">The app</a></li>
           <li><a href="#tournaments">Tournaments</a></li>
+          <li><a href="https://apps.apple.com/lb/app/oncourt-book-courts/id6831710068" target="_blank" rel="noopener">App Store</a></li>
           <li><a href="https://play.google.com/store/apps/details?id=app.oncourt" target="_blank" rel="noopener">Google Play</a></li>
         </ul>
       </div>

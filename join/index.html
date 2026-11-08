@@ -31,11 +31,12 @@
   <p id="lead">Open it in the Oncourt app to see the details and join.</p>
   <a id="open" class="button" href="#">Open in Oncourt</a>
   <p id="noapp" class="hint hidden">
-    Oncourt isn't on this phone yet. Ask the person who invited you for the
-    app, install it, then tap the invite link again.
+    Oncourt isn't on this phone yet. Get it on the
+    <a href="https://apps.apple.com/lb/app/oncourt-book-courts/id6831710068">App Store</a> or
+    <a href="https://play.google.com/store/apps/details?id=app.oncourt">Google Play</a>, then tap the invite link again.
   </p>
   <p id="desktop" class="hint hidden">
-    Open this link on your Android phone with Oncourt installed.
+    Open this link on your phone with Oncourt installed.
   </p>
 </main>
 <script>
@@ -74,6 +75,9 @@
     }
     var appLink = 'app.oncourt://open/' + path;
     var android = /Android/i.test(navigator.userAgent);
+    // iPads ask for the desktop site, so they say Macintosh but have a touch screen.
+    var ios = /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+      (/Macintosh/i.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
     if (params.get('noapp') === '1') {
       document.getElementById('noapp').classList.remove('hidden');
     }
@@ -86,6 +90,13 @@
         // Try straight away; the button stays for browsers that need a tap.
         setTimeout(function () { location.href = open.href; }, 300);
       }
+    } else if (ios) {
+      // iPhone: no automatic jump, because Safari shows an error when the
+      // app isn't installed. The button opens the app; the hint has the store.
+      open.href = appLink;
+      document.getElementById('noapp').classList.remove('hidden');
+      document.getElementById('noapp').firstChild.textContent =
+        "Don't have Oncourt yet? Get it on the ";
     } else {
       open.href = appLink;
       document.getElementById('desktop').classList.remove('hidden');
